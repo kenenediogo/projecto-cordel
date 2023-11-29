@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500&family=Passion+One:wght@400;700;900&family=Sriracha&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500&family=Passion+One&family=Sriracha&display=swap');
+
+:root {
+    --fonte-1padrao: Verdana, Geneva, Tahoma, sans-serif; /* fonte padrão*/
+    --fonte-2titulos: 'Passion One', sans-serif; /* Títulos */
+    --fonte-3conteudo: 'Sriracha', cursive; /* Conteúdo */
+}
+
+/* 1. header 2. footer 3. sections */
+
+/* vai resetar todas as configurações - selector geral */
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 1em;
+}
+
+/* o html e o body vão ter configurações comuns*/
+html, body {
+    min-height: 100vh;
+    background-color: darkgrey;
+    font-family: var(--fonte-1padrao);
+}
+
+header {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+/* text-transform: upercase (colocar todas letras em maiúsculas) ou font-variant: small-caps (torna as letras todas maísculas mas as primeiras ainda ficam maiores) */
+header > h1  {
+    padding-top: 50px;
+    font-variant-caps: small-caps;
+    font-family: var(--fonte-2titulos);
+
+    /* este 10vw (10% da view porto em largura), é para ajustar o tamanho da letra do header conforme a tela vai diminuindo */
+    font-size: 10vw;
+}
+
+header > p {
+    padding-bottom: 50px;
+}
+
+header a, footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+header a:hover, footer a:hover {
+    text-decoration: underline;
+}
+
+/* esta configuração vai servir para as duas section, tanto a imagem, quanto a normal. Criar uma configuração com o padding-top e padding-bottom de 10vh (view port - tamanho da tela) pra dar o efeito paralax no site */
+section {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    line-height: 2em;
+    padding-left: 30px;
+    font-family: var(--fonte-3conteudo);
+
+    /* este 5vw (3.5% da view porto em largura), é para ajustar o tamanho da letra do header conforme a tela vai diminuindo */
+    font-size: 3.5vw;
+}
+
+section > p {
+    padding-bottom: 2em;
+}
+
+section.normal {
+    background-color: white;
+    color: black;
+}
+
+section.imagem {
+    background-color: rgb(50, 50, 50);
+    color: white;
+
+    /* box-shadow: inset (significa, sombra para dentro: 6px: deslocamento direita 6px: deslocamento para baixo 13px: espalhamento 0px: ampliação */
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.473);
+    background-size: cover;
+
+    /* vai fixar as imagens e dar o efeito PARALAX*/
+    background-attachment: fixed;
+}
+
+/* dentro do section de imagem, vamos criar uma caixa preta dentro do parágrafo para não atrabalhar a leitura caso a imagem seja branca, e colocamos um width para delimitar o seu tamanho */
+section.imagem > p {
+
+    /* display: inline-block, ele se transforma em uma caixa que se adapta ao tamanho do conteúdo */
+    display: inline-block;
+
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.512);
+    text-shadow: 1.2px 1.2px 0px black;
+}
+
+section#img01 {
+    background-image: url("imagens/background001.jpg");
+    background-position: right center;
+    
+}
+
+section#img02 {
+    background-image: url("imagens/background002.jpg");
+
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
